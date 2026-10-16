@@ -48,7 +48,7 @@ Implements the LangChain-compatible vector store interface. Supports:
 - `.add_texts()` / `.add_documents()`
 - `.similarity_search()` / `.similarity_search_with_score()`
 - `.max_marginal_relevance_search()`
-- `.get()` / `.list_ids()` / `.delete()`
+- `.get_document()` / `.get_documents()` / `.list_ids()` / `.delete()`
 - `.as_retriever()` for use in LangChain chains
 - Async variants (`.aadd_texts()`, `.asimilarity_search()`, etc.)
 
