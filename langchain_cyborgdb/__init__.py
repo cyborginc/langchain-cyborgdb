@@ -11,6 +11,6 @@ from cyborgdb_core.integrations.langchain import (
     StorageConfig,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.18.0"
 
 __all__ = ["CyborgVectorStore", "CyborgEmbeddings", "StorageConfig"]
