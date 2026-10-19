@@ -12,23 +12,33 @@ pip install langchain-cyborgdb
 
 ## Quick Start
 
-The example below uses OpenAI embeddings (`pip install langchain-openai`), but any LangChain `Embeddings` implementation works. You'll need a CyborgDB API key from [cyborg.co](https://www.cyborg.co).
+The example below runs with no API key and no extra installs: it uses the built-in `all-MiniLM-L6-v2` embedding model and CyborgDB's free tier (`api_key=""`). Any LangChain `Embeddings` implementation also works, for example `OpenAIEmbeddings()` from [`langchain-openai`](https://pypi.org/project/langchain-openai/).
 
 ```python
+import secrets
 from langchain_cyborgdb import CyborgVectorStore, StorageConfig
-from langchain_openai import OpenAIEmbeddings
+
+# Generate an encryption key for the index.
+# WARNING: store this key securely; data encrypted with a lost key is unrecoverable.
+index_key = secrets.token_bytes(32)
 
 store = CyborgVectorStore.from_texts(
     texts=["hello world", "goodbye world"],
-    embedding=OpenAIEmbeddings(),
-    index_key=CyborgVectorStore.generate_key(),
-    api_key="your-api-key",
-    storage_config=StorageConfig.disk("/tmp/cyborgdb-langchain"),
-    metric="cosine"
+    embedding="all-MiniLM-L6-v2",   # built-in model: no extra install, no paid key
+    index_key=index_key,
+    api_key="",                     # free tier; pass your key to lift the 1M-item cap
+    storage_config=StorageConfig.disk("./cyborgdb-langchain"),
+    metric="cosine",
 )
 
-docs = store.similarity_search("hello")
+for doc in store.similarity_search("hello", k=1):
+    print(doc.page_content)  # -> "hello world"
+
+# Delete the index so the example can be run again (the key above is not saved).
+store.delete(delete_index=True)
 ```
+
+Requires Python 3.10 or newer. Full guide: [CyborgDB LangChain docs](https://docs.cyborg.co/versions/latest/integrations/langchain/introduction).
 
 ## Key Features
 
