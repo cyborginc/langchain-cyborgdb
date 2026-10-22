@@ -1,6 +1,6 @@
 # langchain-cyborgdb
 
-LangChain integration for [CyborgDB](https://www.cyborg.co), the Confidential Vector Database. Provides `CyborgVectorStore`, a [LangChain](https://www.langchain.com/) `VectorStore` backed by CyborgDB's encrypted vector indexes.
+LangChain integration for [CyborgDB](https://www.cyborg.co?utm_source=pypi&utm_medium=readme&utm_campaign=2610-db-dev-partner-a), the Confidential Vector Database. Provides `CyborgVectorStore`, a [LangChain](https://www.langchain.com/) `VectorStore` backed by CyborgDB's encrypted vector indexes.
 
 This package is a thin wrapper around the integration that ships in [`cyborgdb-core`](https://pypi.org/project/cyborgdb-core/) — it re-exports `CyborgVectorStore`, `CyborgEmbeddings`, and `StorageConfig` under the standalone package name that LangChain's integration directory expects.
 
@@ -38,7 +38,7 @@ for doc in store.similarity_search("hello", k=1):
 store.delete(delete_index=True)
 ```
 
-Requires Python 3.10 or newer. Full guide: [CyborgDB LangChain docs](https://docs.cyborg.co/versions/latest/integrations/langchain/introduction).
+Requires Python 3.10 or newer. Full guide: [CyborgDB LangChain docs](https://docs.cyborg.co/versions/latest/integrations/langchain/introduction?utm_source=pypi&utm_medium=readme&utm_campaign=2610-db-dev-partner-a).
 
 ## Key Features
 
@@ -68,10 +68,10 @@ Configuration object for defining where index data is stored, built with `Storag
 
 ## Documentation
 
-Full documentation, including metadata filtering and hybrid (BM25) search, lives at [docs.cyborg.co](https://docs.cyborg.co/versions/latest/integrations/langchain/introduction).
+Full documentation, including metadata filtering and hybrid (BM25) search, lives at [docs.cyborg.co](https://docs.cyborg.co/versions/latest/integrations/langchain/introduction?utm_source=pypi&utm_medium=readme&utm_campaign=2610-db-dev-partner-a).
 
-Using the CyborgDB client/server deployment instead of the embedded engine? The same integration is available via `pip install cyborgdb[langchain]` — see the [Deployment Models Guide](https://docs.cyborg.co/versions/latest/intro/deployment-models).
+Using the CyborgDB client/server deployment instead of the embedded engine? The same integration is available via `pip install cyborgdb[langchain]` — see the [Deployment Models Guide](https://docs.cyborg.co/versions/latest/intro/deployment-models?utm_source=pypi&utm_medium=readme&utm_campaign=2610-db-dev-partner-a).
 
 ## License
 
-This wrapper is MIT licensed. It depends on `cyborgdb-core`, which is distributed under its own [proprietary license](https://www.cyborg.co).
+This wrapper is MIT licensed. It depends on `cyborgdb-core`, which is distributed under its own [proprietary license](https://www.cyborg.co?utm_source=pypi&utm_medium=readme&utm_campaign=2610-db-dev-partner-a).
