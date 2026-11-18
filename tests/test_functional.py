@@ -9,8 +9,8 @@ exact-text queries must return that text as the top hit and no embedding
 model download or OpenAI key is needed. Semantic-quality tests (synonym /
 paraphrase search) stay in cyborgdb-core where the real models live.
 
-cyborgdb-core validates the CyborgDB API key against Cyborg's backend, so
-the whole module is skipped unless CYBORGDB_API_KEY is set.
+Runs in cyborgdb-core's free mode (empty API key) by default, so no
+CYBORGDB_API_KEY is required; if the env var is set, that key is used.
 """
 
 import os
@@ -21,11 +21,6 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import DeterministicFakeEmbedding
 
 from langchain_cyborgdb import CyborgVectorStore, StorageConfig
-
-pytestmark = pytest.mark.skipif(
-    not os.environ.get("CYBORGDB_API_KEY"),
-    reason="CYBORGDB_API_KEY not set; functional tests need a real key",
-)
 
 EMBEDDING = DeterministicFakeEmbedding(size=128)
 
@@ -40,7 +35,8 @@ def make_store(tmp_path):
             embedding=EMBEDDING,
             index_name=f"lc_wrapper_{uuid.uuid4().hex[:12]}",
             index_key=CyborgVectorStore.generate_key(),
-            api_key=os.environ["CYBORGDB_API_KEY"],
+            # Empty key = cyborgdb-core's free mode; a real key is used if set.
+            api_key=os.environ.get("CYBORGDB_API_KEY", ""),
             storage_config=StorageConfig.disk(str(tmp_path)),
             metric="cosine",
         )

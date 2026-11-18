@@ -11,7 +11,7 @@ requires-python = ">= 3.10"
 license = "MIT"
 authors = [{ name = "Cyborg Inc." }]
 keywords = ["langchain", "vectorstore", "cyborgdb", "encrypted", "vector database"]
-dependencies = ["cyborgdb-core[langchain] >= 0.18.0"]
+dependencies = ["cyborgdb-core[langchain] >= 0.18.1"]
 classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
@@ -32,7 +32,11 @@ classifiers = [
 "Repository" = "https://github.com/cyborginc/langchain-cyborgdb"
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "pytest-asyncio", "langchain-tests"]
 
 [tool.setuptools.packages.find]
 include = ["langchain_cyborgdb*"]
+
+[tool.pytest.ini_options]
+# The standard suite's async tests (test_langchain_standard.py) need this.
+asyncio_mode = "auto"
