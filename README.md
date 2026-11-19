@@ -85,7 +85,7 @@ Using the CyborgDB client/server deployment instead of the embedded engine? The 
 
 ## Versioning
 
-`langchain-cyborgdb` follows `cyborgdb-core`'s major and minor version: 0.18.x is built and tested against `cyborgdb-core` 0.18.x. Patch releases are the wrapper's own. Release 0.1.0 was an early pre-release; use 0.18.0 or newer.
+`langchain-cyborgdb` follows `cyborgdb-core`'s major and minor version: 0.18.x is built and tested against `cyborgdb-core` 0.18.x. Patch releases are the wrapper's own. Release 0.1.0 was an early pre-release; use 0.18.2 or newer.
 
 ## License
 
