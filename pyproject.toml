@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">= 3.10"
 license = "MIT"
 authors = [{ name = "Cyborg Inc." }]
-keywords = ["langchain", "vectorstore", "cyborgdb", "encrypted", "vector database"]
+keywords = ["langchain", "vectorstore", "cyborgdb", "encrypted", "vector database", "encrypted vector store", "rag", "agent memory", "multi-tenant"]
 dependencies = ["cyborgdb-core[langchain] >= 0.18.1"]
 classifiers = [
     "Intended Audience :: Developers",
@@ -29,7 +29,9 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://www.cyborg.co"
 "Documentation" = "https://docs.cyborg.co/versions/latest/integrations/langchain/introduction"
-"Repository" = "https://github.com/cyborginc/langchain-cyborgdb"
+"Source" = "https://github.com/cyborginc/langchain-cyborgdb"
+"LangChain" = "https://docs.langchain.com/oss/python/integrations/vectorstores"
+"Changelog" = "https://github.com/cyborginc/langchain-cyborgdb/releases"
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-asyncio", "langchain-tests"]
